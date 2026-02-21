@@ -1,0 +1,101 @@
+% ================================================================
+% APA7-konforme Dokumenteinstellungen
+% Geeignet für akademische Arbeiten an Hochschulen
+% ================================================================
+
+% Dokumentenklasse
+% openany: kein Leerseiten-Umbruch vor jedem Kapitel
+% chapterprefix=false: kein "Kapitel X" vor dem Titel
+\documentclass[
+  12pt,
+  a4paper,
+  oneside,
+  openany,
+  numbers=noendperiod,
+  chapterprefix=false
+]{scrbook}
+
+
+% ---- Seitenränder nach APA7: 2,54 cm (1 Zoll) auf allen Seiten ----
+\usepackage[
+  top=25.4mm,
+  bottom=25.4mm,
+  left=25.4mm,
+  right=25.4mm
+]{geometry}
+
+
+% ---- Tweaks für KOMA-Script ----
+\usepackage{scrhack}
+
+
+% ---- Schriftart: Times New Roman, 12 pt (APA7-konform) ----
+% newtxtext/newtxmath: moderner Ersatz für das veraltete mathptmx,
+% liefert hochwertigeres Times New Roman für pdflatex
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext}   % Times New Roman für Fließtext
+\usepackage{newtxmath}   % Passende Mathematikschrift
+% Alternative bei Verwendung von LuaLaTeX oder XeLaTeX:
+%   \usepackage{fontspec}
+%   \setmainfont{Times New Roman}
+
+
+% ---- Sprache: Deutsch ----
+\usepackage[ngerman]{babel}
+
+
+% ---- Mikrotypografie (verbesserte Buchstabenabstände) ----
+\usepackage[stretch=10]{microtype}
+
+
+% ---- Doppelter Zeilenabstand (APA7-Pflicht) ----
+\usepackage[doublespacing]{setspace}
+
+
+% ---- Absatzeinzug nach APA7: 1,27 cm (0,5 Zoll) ----
+% Kein zusätzlicher Abstand zwischen Absätzen
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{0pt}
+
+
+% ---- Captions (Abbildungs- und Tabellenbeschriftungen) ----
+\usepackage{caption}
+
+
+% ---- Grafiken ----
+\usepackage{graphicx}
+
+
+% ---- Positionierung von Abbildungen und Tabellen ----
+\usepackage{float}
+
+
+% ---- Tabellen ----
+\usepackage{tabularx}                 % Tabellen mit flexiblen Spaltenbreiten
+\usepackage{longtable}                % Seitenübergreifende Tabellen
+\usepackage{booktabs}                 % APA7-Tabellenlinien (keine vertikalen Linien)
+
+
+% ---- Farben ----
+\usepackage[table]{xcolor}
+
+
+% ---- Hyperlinks (ohne farbige Rahmen) ----
+\usepackage[hidelinks]{hyperref}
+
+
+% ---- Literaturverwaltung nach APA7 ----
+% Benötigt: biblatex-apa (CTAN-Paket)
+\usepackage{csquotes}
+\usepackage[
+  style=apa,
+  backend=biber
+]{biblatex}
+\DeclareLanguageMapping{ngerman}{ngerman-apa}
+\addbibresource{literatur/quellen.bib}
+
+
+% ---- Kopf- und Fußzeile ----
+\usepackage[automark]{scrlayer-scrpage}  % headsepline entfernt: APA7 hat keine Trennlinie
+\input{einstellungen/kopfzeile}

@@ -1,0 +1,88 @@
+% ================================================================
+% APA7-Formatierungsbeispiele
+% Diese Datei dient als Referenz und kann nach Fertigstellung
+% der Arbeit aus main.tex entfernt werden.
+% ================================================================
+
+\chapter{APA7-Formatierungsbeispiele}
+
+
+% ================================================================
+\section{Zitation im Text}
+% ================================================================
+
+Ein indirektes Zitat (Paraphrase) wird mit Autor und Jahr angegeben \autocite{Muster2023}. Wenn der Name im Fließtext steht, folgt nur das Jahr in Klammern: Muster et al.\ (2023) beschreiben, dass \ldots
+
+Ein wörtliches Zitat bis 39 Wörter steht in Anführungszeichen im Fließtext: „Hier steht das wörtliche Zitat genau wie im Original" \autocite[S.~45]{Muster2023}.
+
+Ein wörtliches Zitat ab 40 Wörtern wird als eingerücktes Blockzitat dargestellt:
+
+\begin{quote}
+Hier steht ein längeres wörtliches Zitat, das mindestens 40 Wörter umfasst. Das Blockzitat wird ohne Anführungszeichen gesetzt und ist links eingerückt. Die Quellenangabe mit Seitenzahl folgt nach dem abschließenden Satzzeichen in Klammern. \autocite[S.~102]{Buch2021}
+\end{quote}
+
+
+% ================================================================
+\section{Tabellen nach APA7}
+% ================================================================
+% Aufbau:
+%   \caption{Titel der Tabelle}   ← nur Beschreibungstext, KEIN manuelles "Tabelle X"
+%   LaTeX setzt automatisch: "Tabelle 1" (fett) + Zeilenumbruch + Titel (kursiv)
+%   Anmerkungen stehen nach der Tabelle, kursiv „Anmerkung."
+%   Keine vertikalen Linien – nur \toprule, \midrule, \bottomrule
+% ================================================================
+
+\begin{table}[H]
+  \caption{Beispielhafte Übersicht mit drei Spalten}
+  \label{tab:beispiel}
+  \begin{tabularx}{\textwidth}{@{}lXr@{}}
+    \toprule
+    \textbf{Kategorie} & \textbf{Beschreibung} & \textbf{Wert} \\
+    \midrule
+    Kategorie A & Kurze Beschreibung der ersten Kategorie  & 1--2 \\
+    Kategorie B & Kurze Beschreibung der zweiten Kategorie & 2--3 \\
+    Kategorie C & Kurze Beschreibung der dritten Kategorie & nach Bedarf \\
+    Kategorie D & Kurze Beschreibung der vierten Kategorie & 3--4 \\
+    \bottomrule
+  \end{tabularx}
+  \par\vspace{2pt}
+  {\raggedright\footnotesize\textit{Anmerkung.} Eigene Darstellung auf Basis von \autocite{Buch2021}.\par}
+\end{table}
+
+
+% ================================================================
+\section{Abbildungen nach APA7}
+% ================================================================
+% Aufbau:
+%   \caption{Titel der Abbildung}  ← nur Beschreibungstext, KEIN manuelles "Abbildung X"
+%   LaTeX setzt automatisch: "Abbildung 1" (fett) + Zeilenumbruch + Titel (kursiv)
+%   Beschriftung steht unter der Abbildung
+%   Anmerkungen direkt darunter, kursiv „Anmerkung."
+% ================================================================
+
+\begin{figure}[H]
+  \centering
+  % Platzhalter – durch eigene Abbildung ersetzen, z.B.:
+  \includegraphics[width=\textwidth]{bilder/beispiel.png}
+  \caption{Beispielhafte Darstellung eines Prozessablaufs}
+  \label{fig:beispielabbildung}
+  \par\vspace{2pt}
+  {\raggedright\footnotesize\textit{Anmerkung.} Eigene Darstellung.\par}
+\end{figure}
+
+
+% ================================================================
+\section{Überschriftenebenen}
+% ================================================================
+
+\subsection{Ebene 2: Linksbündig, Fett}
+
+Text nach einer Ebene-2-Überschrift beginnt in einer neuen Zeile. Kein Einzug in der ersten Zeile nach einer Überschrift ist in APA7 nicht vorgeschrieben – in der Praxis wird er oft weggelassen.
+
+\subsubsection{Ebene 3: Linksbündig, Fett und Kursiv}
+
+Text nach einer Ebene-3-Überschrift beginnt ebenfalls in einer neuen Zeile.
+
+\paragraph{Ebene 4: Eingerückt, Fett, mit Punkt.} Text der Ebene 4 beginnt direkt nach dem Punkt in derselben Zeile und läuft normal weiter.
+
+\subparagraph{Ebene 5: Eingerückt, Fett-Kursiv, mit Punkt.} Text der Ebene 5 beginnt direkt nach dem Punkt in derselben Zeile und läuft normal weiter.

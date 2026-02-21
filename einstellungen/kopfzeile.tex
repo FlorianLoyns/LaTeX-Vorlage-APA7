@@ -1,0 +1,25 @@
+% ================================================================
+% Kopf- und Fußzeile
+%   – Links:  Aktueller Kapitelname (wechselt automatisch)
+%   – Rechts: Seitenzahl
+%
+% Hinweis APA7:
+%   Streng nach APA7 (Manuskript zur Publikation) wäre links ein
+%   fester Kurztitel (Running Head). Für Abschlussarbeiten und
+%   Hausarbeiten an deutschen Hochschulen ist der Kapitelname
+%   jedoch üblicher und prüferseitig erwartet.
+%
+%   Für festen Kurztitel: \ihead{\small\MakeUppercase{\runninghead}}
+%   und \renewcommand{\runninghead}{KURZTITEL} in main.tex setzen.
+% ================================================================
+
+\automark{chapter}
+\ihead{\small\leftmark}   % Links: aktueller Kapitelname
+\chead{}                   % Mitte: leer
+\ohead{\thepage}           % Rechts: Seitenzahl
+
+\ifoot*{}
+\cfoot*{}
+\ofoot*{}
+
+\pagestyle{scrheadings}

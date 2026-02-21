@@ -1,0 +1,124 @@
+% ================================================================
+% APA7-Formatierungsanpassungen
+% ================================================================
+
+
+% ---- Serifenschrift für alle Überschriften beibehalten ----
+\addtokomafont{disposition}{\rmfamily}
+
+
+% ================================================================
+% APA7 – Keine Nummerierung der Überschriften
+% ================================================================
+\setcounter{secnumdepth}{-1}
+
+
+% ================================================================
+% APA7 – Fünf Überschriftenebenen
+% ================================================================
+
+% Ebene 1 – chapter: Zentriert, Fett, Titelschreibung
+% Beispiel:  Einleitung
+\setkomafont{chapter}{\normalsize\bfseries}
+\renewcommand*{\raggedchapter}{\centering}
+\RedeclareSectionCommand[
+  beforeskip=0pt,
+  afterskip=\baselineskip
+]{chapter}
+
+% Ebene 2 – section: Linksbündig, Fett, Titelschreibung
+% Beispiel:  Theoretischer Hintergrund
+% afterskip muss > 0 sein, sonst behandelt KOMA-Script die Überschrift als Runin
+\setkomafont{section}{\normalsize\bfseries}
+\RedeclareSectionCommand[
+  beforeskip=\baselineskip,
+  afterskip=1sp
+]{section}
+
+% Ebene 3 – subsection: Linksbündig, Fett und Kursiv, Titelschreibung
+% Beispiel:  Theoretische Grundlagen
+\setkomafont{subsection}{\normalsize\bfseries\itshape}
+\RedeclareSectionCommand[
+  beforeskip=\baselineskip,
+  afterskip=1sp
+]{subsection}
+
+% Ebene 4 – subsubsection: Eingerückt, Fett, Titelschreibung, Punkt, Fließtext folgt
+% Beispiel:  Kommunikation im Team.  Text beginnt hier …
+\setkomafont{subsubsection}{\normalsize\bfseries}
+\RedeclareSectionCommand[
+  style=runin,
+  beforeskip=0pt,
+  afterskip=1em,
+  indent=\parindent
+]{subsubsection}
+
+% Ebene 5 – paragraph: Eingerückt, Fett und Kursiv, Titelschreibung, Punkt, Fließtext folgt
+% Beispiel:  Verbale Kommunikation.  Text beginnt hier …
+\setkomafont{paragraph}{\normalsize\bfseries\itshape}
+\RedeclareSectionCommand[
+  style=runin,
+  beforeskip=0pt,
+  afterskip=1em,
+  indent=\parindent
+]{paragraph}
+
+
+% ================================================================
+% APA7 – Tabellen
+% APA7-Tabellen haben:
+%   • Titel über der Tabelle (Nummer fett, Titel kursiv, neue Zeile)
+%   • Keine vertikalen Linien
+%   • Horizontale Linien: nur über und unter dem Kopf sowie am Ende
+%   • Anmerkungen unter der Tabelle (kursiv „Anmerkung.")
+% Empfehlung: Tabellen mit \toprule, \midrule, \bottomrule (booktabs) erstellen
+% ================================================================
+\setlength{\arrayrulewidth}{0.5pt}
+
+
+% ================================================================
+% APA7 – Blockzitat (quote-Umgebung)
+% APA7 §8.27: Blockzitate werden nur linksseitig eingerückt (1,27 cm),
+% nicht beidseitig wie LaTeXs Standard-quote.
+% ================================================================
+\renewenvironment{quote}{%
+  \list{}{%
+    \leftmargin=1.27cm
+    \rightmargin=0pt
+    \topsep=0pt
+    \parsep=0pt
+    \itemsep=0pt
+  }%
+  \item\relax
+}{%
+  \endlist
+}
+
+
+% ================================================================
+% APA7 – Caption-Format für Abbildungen und Tabellen
+% Aufbau: „Abbildung 1" (fett) auf eigener Zeile, Titel (kursiv) darunter
+% \DeclareCaptionFormat ist robuster als labelsep=newline in KOMA-Script
+% ================================================================
+% labelfont=bf macht das Label fett (robuster als \textbf im Format)
+% textfont=it macht den Beschreibungstext kursiv
+% Das Format {#1#2\\#3} erzeugt: Label + Trenner → Zeilenumbruch → Text
+\DeclareCaptionFormat{apa7}{#1#2\\#3}
+
+\captionsetup[figure]{
+  format=apa7,
+  labelfont=bf,
+  textfont=it,
+  labelsep=space,
+  justification=raggedright,
+  singlelinecheck=false
+}
+\captionsetup[table]{
+  format=apa7,
+  labelfont=bf,
+  textfont=it,
+  labelsep=space,
+  justification=raggedright,
+  singlelinecheck=false,
+  position=above
+}

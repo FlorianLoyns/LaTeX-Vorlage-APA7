@@ -1,0 +1,80 @@
+% ================================================================
+% Titelseite: Abschlussarbeit (APA7-Studentenpapier-Format)
+% Verwendete Befehle in main.tex:
+%   \title{...}            Titel der Arbeit
+%   \author{...}           Verfasser/in
+%   \matrikelnr{...}       Matrikelnummer
+%   \submitDate{...}       Abgabedatum
+%   \firstExaminer{...}    Erstgutachter/in
+%   \secondExaminer{...}   Zweitgutachter/in
+%   \gradeType{...}        Angestrebter Abschluss
+%   \institution{...}      Hochschule / Fachbereich
+% ================================================================
+
+\makeatletter
+
+\newcommand*{\gradeType}[1]{\gdef\@gradeType{#1}}
+\newcommand*{\firstExaminer}[1]{\gdef\@firstExaminer{#1}}
+\newcommand*{\secondExaminer}[1]{\gdef\@secondExaminer{#1}}
+\newcommand*{\matrikelnr}[1]{\gdef\@matrikelnr{#1}}
+\newcommand*{\submitDate}[1]{\gdef\@submitDate{#1}}
+\newcommand*{\institution}[1]{\gdef\@institution{#1}}
+
+% Standardwerte (werden durch main.tex überschrieben)
+\gradeType{Bachelor of Science (B.Sc.)}
+\firstExaminer{}
+\secondExaminer{}
+\matrikelnr{}
+\submitDate{\today}
+\institution{}
+
+\renewcommand*{\maketitle}{%
+  \begin{titlepage}%
+    \newgeometry{
+      top=25.4mm,
+      bottom=25.4mm,
+      left=25.4mm,
+      right=25.4mm
+    }%
+    \begin{center}%
+      \setstretch{2.0}%
+
+      % Institution
+      \vspace*{\fill}
+      {\normalsize \@institution \par}%
+
+      \vspace{3\baselineskip}
+
+      % Titel (fett, APA7)
+      {\normalsize \bfseries \@title \par}%
+
+      \vspace{2\baselineskip}
+
+      % Verfasser/in
+      {\normalsize \@author \par}%
+      {\normalsize Matrikelnummer: \@matrikelnr \par}%
+
+      \vspace{2\baselineskip}
+
+      % Arbeit und Abschluss
+      {\normalsize Abschlussarbeit zur Erlangung des akademischen Grades \par}%
+      {\normalsize \@gradeType \par}%
+
+      \vspace{2\baselineskip}
+
+      % Prüfer/innen
+      {\normalsize Erstgutachter/in: \@firstExaminer \par}%
+      {\normalsize Zweitgutachter/in: \@secondExaminer \par}%
+
+      \vspace{2\baselineskip}
+
+      % Datum
+      {\normalsize Abgabedatum: \@submitDate \par}%
+
+      \vspace*{\fill}
+    \end{center}%
+    \restoregeometry%
+  \end{titlepage}%
+}
+
+\makeatother

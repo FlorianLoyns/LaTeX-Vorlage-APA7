@@ -1,0 +1,72 @@
+% ================================================================
+% Titelseite: Hausarbeit / Seminararbeit (APA7-Format)
+% Verwendete Befehle in main.tex:
+%   \title{...}            Titel der Hausarbeit
+%   \author{...}           Verfasser/in
+%   \matrikelnr{...}       Matrikelnummer
+%   \submitDate{...}       Abgabedatum
+%   \firstExaminer{...}    Dozent/in
+%   \modulName{...}        Modulbezeichnung
+%   \institution{...}      Hochschule / Fachbereich
+% ================================================================
+
+\makeatletter
+
+% Befehle (sofern nicht bereits in graduation.tex definiert)
+\providecommand*{\firstExaminer}[1]{\gdef\@firstExaminer{#1}}
+\providecommand*{\matrikelnr}[1]{\gdef\@matrikelnr{#1}}
+\providecommand*{\submitDate}[1]{\gdef\@submitDate{#1}}
+\providecommand*{\institution}[1]{\gdef\@institution{#1}}
+\newcommand*{\modulName}[1]{\gdef\@modulName{#1}}
+
+% Standardwerte
+\firstExaminer{}
+\matrikelnr{}
+\submitDate{\today}
+\institution{}
+\modulName{}
+
+\renewcommand*{\maketitle}{%
+  \begin{titlepage}%
+    \newgeometry{
+      top=25.4mm,
+      bottom=25.4mm,
+      left=25.4mm,
+      right=25.4mm
+    }%
+    \begin{center}%
+      \setstretch{2.0}%
+
+      % Institution
+      \vspace*{\fill}
+      {\normalsize \@institution \par}%
+
+      \vspace{3\baselineskip}
+
+      % Titel (fett, APA7)
+      {\normalsize \bfseries \@title \par}%
+
+      \vspace{2\baselineskip}
+
+      % Verfasser/in
+      {\normalsize \@author \par}%
+      {\normalsize Matrikelnummer: \@matrikelnr \par}%
+
+      \vspace{2\baselineskip}
+
+      % Modul und Dozent/in
+      {\normalsize \@modulName \par}%
+      {\normalsize Dozent/in: \@firstExaminer \par}%
+
+      \vspace{2\baselineskip}
+
+      % Datum
+      {\normalsize Abgabedatum: \@submitDate \par}%
+
+      \vspace*{\fill}
+    \end{center}%
+    \restoregeometry%
+  \end{titlepage}%
+}
+
+\makeatother

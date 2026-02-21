@@ -1,0 +1,108 @@
+% ================================================================
+% Hauptdatei – APA7-Vorlage für wissenschaftliche Arbeiten
+% ================================================================
+\input{einstellungen/pakete}
+\input{einstellungen/formatierung}
+
+
+% ================================================================
+% Titelseite – gewünschtes Layout einkommentieren
+% ================================================================
+
+% Option A: Abschlussarbeit (Bachelor/Master/Diplom)
+\include{titelseiten/abschlussarbeit}
+\gradeType{Bachelor of Science (B.Sc.)}
+\secondExaminer{Vorname Nachname}
+
+% Option B: Hausarbeit / Seminararbeit
+% \include{titelseiten/hausarbeit}
+% \modulName{Modul: Modulname}
+
+
+% ================================================================
+% Angaben zur Arbeit
+% ================================================================
+\title{Titel der Arbeit}
+\author{Vorname Nachname}
+\matrikelnr{0000000}
+\submitDate{\today}
+\firstExaminer{Vorname Nachname}
+\institution{Name der Hochschule \\ Fachbereich}
+
+% Running Head: Kurztitel in Großbuchstaben, max. 50 Zeichen
+% Erscheint oben links auf jeder Seite (APA7-Manuskriptformat)
+% Für reine Studentenarbeiten: \ihead{} in einstellungen/kopfzeile.tex auskommentieren
+\renewcommand{\runninghead}{KURZTITEL DER ARBEIT}
+
+
+% ================================================================
+% Dokumentbeginn
+% ================================================================
+\begin{document}
+
+\pagenumbering{alph}
+\maketitle
+
+\pagenumbering{Roman}
+
+% Abstract (eigene Seite, 150–250 Wörter)
+\include{kapitel/abstract}
+\clearpage
+
+% Inhaltsverzeichnis
+\tableofcontents
+\clearpage
+
+% Abbildungsverzeichnis (einkommentieren, wenn Abbildungen vorhanden)
+% \listoffigures \clearpage
+
+% Tabellenverzeichnis (einkommentieren, wenn Tabellen vorhanden)
+% \listoftables \clearpage
+
+
+% ================================================================
+% Hauptteil – Grundgerüst einer wissenschaftlichen Arbeit
+% ================================================================
+\pagenumbering{arabic}
+
+% 1. Einleitung
+\input{kapitel/kapitel1} \clearpage
+
+% 2. Theoretischer Hintergrund / Literaturübersicht
+\input{kapitel/kapitel2} \clearpage
+
+% 3. Methodik
+\input{kapitel/kapitel3} \clearpage
+
+% 4. Ergebnisse
+\input{kapitel/kapitel4} \clearpage
+
+% 5. Diskussion
+\input{kapitel/kapitel5} \clearpage
+
+% 6. Fazit und Ausblick
+\input{kapitel/kapitel6} \clearpage
+
+% APA7-Formatierungsbeispiele (nach Fertigstellung entfernen)
+% \input{kapitel/apa7_hinweise} \clearpage
+
+
+% ================================================================
+% Anhang
+% ================================================================
+\input{kapitel/anhang}
+
+
+% ================================================================
+% Literaturverzeichnis (APA7 – einheitliche Liste)
+% ================================================================
+\printbibliography[heading=bibintoc, title={Literaturverzeichnis}]
+\clearpage
+
+
+% ================================================================
+% Eigenständigkeitserklärung
+% ================================================================
+\input{kapitel/erklaerung}
+
+\end{document}
